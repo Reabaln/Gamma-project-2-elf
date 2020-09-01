@@ -11,11 +11,6 @@ spec:
     command:
     - cat
     tty: true
-  - name: helm
-    image: alpine/helm
-    command:
-    - cat
-    tty: true
 """
     }
   }
@@ -28,7 +23,7 @@ spec:
               container('kubectl') {
                   sh '''
 		      kubectl --token=$TOKEN create namespace elf
-                      #kubectl --token=$TOKEN taint nodes k3d-labs-agent-1 key:NoExecute
+                      kubectl --token=$TOKEN taint nodes k3d-labs-agent-0 key:NoExecute
                   '''
               }
           }

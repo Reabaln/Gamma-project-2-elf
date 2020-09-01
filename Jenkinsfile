@@ -11,6 +11,11 @@ spec:
     command:
     - cat
     tty: true
+  - name: helm
+    image: alpine/helm
+    command:
+    - cat
+    tty: true
 """
     }
   }

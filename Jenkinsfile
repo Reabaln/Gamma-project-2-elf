@@ -22,7 +22,16 @@ spec:
   environment {
     TOKEN=credentials('cffc1cc9-775e-4507-86b8-54433e85e3ae')
   }
+
+
+
     stages {
+       stage ('check-changes'){ 
+        when {
+                changeset "**/*.*"
+            }
+
+  stages {
       stage("Deploy") {
           steps {
               container('kubectl') {
@@ -47,5 +56,7 @@ spec:
             }
         }
     }
+   }
+  }
 }
 
